@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">IMDB Movie's Sentiment Analysis</h1>
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <textarea class="form-control" rows="5" name="text" placeholder="Enter text for sentiment analysis..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict Sentiment</button>
+        </form>
+        {% if text %}
+        <div class="mt-4">
+            <h1>Sentiment Prediction:</h1>
+            {% if sentiment == 'Positive' %}
+            <p style="color: green; font-size: 2em;">{{ sentiment }}</p>
+            {% elif sentiment == 'Negative' %}
+            <p style="color: red; font-size: 2em;">{{ sentiment }}</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
